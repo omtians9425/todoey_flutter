@@ -20,8 +20,14 @@ class _TasksListState extends State<TasksList> {
       Task(name: 'go gym')
     ];
 
-    return ListView.builder(itemBuilder: (context, index) {
-      return TaskTile();
-    });
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return TaskTile(
+          title: tasks[index].name,
+          isChecked: tasks[index].isDone,
+        );
+      },
+      itemCount: tasks.length,
+    );
   }
 }
