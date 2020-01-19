@@ -16,29 +16,32 @@ class _TaskTileState extends State<TaskTile> {
         style: TextStyle(
             decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
-      trailing: TaskCheckbox(
-          checkboxState: isChecked,
-          toggleCheckboxState: (bool checkboxState) {
-            setState(() {
-              isChecked = checkboxState;
-            });
-          }),
+      trailing: Checkbox(
+          activeColor: Colors.lightBlueAccent,
+          value: isChecked,
+          onChanged: null),
     );
   }
 }
 
-class TaskCheckbox extends StatelessWidget {
-  final bool checkboxState;
-  final Function toggleCheckboxState;
+//toggleCheckboxState: (bool checkboxState) {
+//setState(() {
+//isChecked = checkboxState;
+//});
+//}),
 
-  TaskCheckbox({this.checkboxState, this.toggleCheckboxState});
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      activeColor: Colors.lightBlueAccent,
-      value: checkboxState,
-      onChanged: toggleCheckboxState,
-    );
-  }
-}
+//class TaskCheckbox extends StatelessWidget {
+//  final bool checkboxState;
+//  final Function toggleCheckboxState;
+//
+//  TaskCheckbox({this.checkboxState, this.toggleCheckboxState});
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Checkbox(
+//      activeColor: Colors.lightBlueAccent,
+//      value: checkboxState,
+//      onChanged: toggleCheckboxState,
+//    );
+//  }
+//}

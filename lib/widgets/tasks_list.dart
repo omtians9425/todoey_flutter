@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:todoey_flutter/models/task.dart';
 import 'package:todoey_flutter/widgets/task_tile.dart';
 
-class TasksList extends StatelessWidget {
+class TasksList extends StatefulWidget {
   const TasksList({
     Key key,
   }) : super(key: key);
 
+  @override
+  _TasksListState createState() => _TasksListState();
+}
+
+class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
     List<Task> tasks = [
@@ -15,12 +20,8 @@ class TasksList extends StatelessWidget {
       Task(name: 'go gym')
     ];
 
-    return ListView(
-      children: <Widget>[
-        TaskTile(),
-        TaskTile(),
-        TaskTile(),
-      ],
-    );
+    return ListView.builder(itemBuilder: (context, index) {
+      return TaskTile();
+    });
   }
 }
