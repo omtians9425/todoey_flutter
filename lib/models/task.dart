@@ -1,6 +1,6 @@
 class Task {
   final String name;
-  bool isDone;
+  bool isDone = false;
 
   Task({this.name, this.isDone});
 

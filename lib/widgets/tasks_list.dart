@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/models/task.dart';
 import 'package:todoey_flutter/widgets/task_tile.dart';
 
 class TasksList extends StatelessWidget {
@@ -8,6 +9,12 @@ class TasksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Task> tasks = [
+      Task(name: 'buy milk'),
+      Task(name: 'buy cake'),
+      Task(name: 'go gym')
+    ];
+
     return ListView(
       children: <Widget>[
         TaskTile(),
