@@ -65,7 +65,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       fontSize: 50.0),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
