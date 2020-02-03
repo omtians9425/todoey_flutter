@@ -31,15 +31,16 @@ class AddTaskScreen extends StatelessWidget {
                 fontSize: 30.0,
               ),
             ),
-            TextFormField(
+            TextField(
               autofocus: true,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
                 border: UnderlineInputBorder(),
               ),
-              onChanged: (text) {
-                print(text);
-                newTaskTitle = text;
+              onChanged: (newText) {
+                print(newText);
+                newTaskTitle = newText;
+                print(newTaskTitle);
               },
             ),
             SizedBox(
@@ -52,8 +53,10 @@ class AddTaskScreen extends StatelessWidget {
               ),
               color: Colors.lightBlueAccent,
               onPressed: () {
-                print('on pressed: $newTaskTitle');
-                addTaskCallback(newTaskTitle);
+                print(newTaskTitle);
+                if (newTaskTitle != null) {
+                  addTaskCallback(newTaskTitle);
+                }
               },
             )
           ],

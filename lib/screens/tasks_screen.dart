@@ -31,6 +31,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   print('addTaskCallback called. $newTaskTitle');
                   tasks.add(Task(name: newTaskTitle));
                 });
+                Navigator.pop(context);
               },
             ),
           );
@@ -84,14 +85,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(
-                tasks: tasks,
-                checkboxCallback: (index) {
-                  setState(() {
-                    tasks[index].toggleDone();
-                  });
-                },
-              ),
+              child: TasksList(tasks: tasks),
             ),
           )
         ],
