@@ -11,20 +11,23 @@ class TasksList extends StatefulWidget {
 class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
-    List tasks = Provider.of<TasksData>(context).tasks;
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return TaskTile(
-          title: tasks[index].name,
-          isChecked: tasks[index].isDone,
-          checkboxCallback: (checkboxState) {
-            setState(() {
-              tasks[index].toggleDone();
-            });
+    return Consumer<TasksData>(
+      builder: (context, tasksData, child) {
+        return ListView.builder(
+          itemBuilder: (context, index) {
+            return TaskTile(
+              title: Provider.of<TasksData>(context).tasks[index].name,
+              isChecked: Provider.of<TasksData>(context).tasks[index].isDone,
+              checkboxCallback: (checkboxState) {
+                setState(() {
+                  Provider.of<TasksData>(context).tasks[index].toggleDone();
+                });
+              },
+            );
           },
+          itemCount: Provider.of<TasksData>(context).tasks.length,
         );
       },
-      itemCount: tasks.length,
     );
   }
 }
