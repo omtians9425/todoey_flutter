@@ -16,16 +16,16 @@ class _TasksListState extends State<TasksList> {
         return ListView.builder(
           itemBuilder: (context, index) {
             return TaskTile(
-              title: Provider.of<TasksData>(context).tasks[index].name,
-              isChecked: Provider.of<TasksData>(context).tasks[index].isDone,
+              title: tasksData.tasks[index].name,
+              isChecked: tasksData.tasks[index].isDone,
               checkboxCallback: (checkboxState) {
                 setState(() {
-                  Provider.of<TasksData>(context).tasks[index].toggleDone();
+                  tasksData.tasks[index].toggleDone();
                 });
               },
             );
           },
-          itemCount: Provider.of<TasksData>(context).tasks.length,
+          itemCount: tasksData.taskCount,
         );
       },
     );
