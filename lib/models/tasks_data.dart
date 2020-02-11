@@ -8,8 +8,9 @@ class TasksData extends ChangeNotifier {
     Task(name: 'go gym')
   ];
 
-  void addTask(Task newTask) {
-    tasks.add(newTask);
+  void addTask(String newTaskTitle) {
+    final task = Task(name: newTaskTitle);
+    tasks.add(task);
     notifyListeners();
   }
 
